@@ -1,4 +1,4 @@
-import { Prisma, PrismaClient } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { Pool } from 'pg';
 
@@ -14,7 +14,7 @@ const pgPool =
   });
 
 const adapter = new PrismaPg(pgPool);
-const prismaLogLevels: Prisma.LogLevel[] =
+const prismaLogLevels: Array<'query' | 'warn' | 'error'> =
   process.env.PRISMA_LOG_QUERIES === 'true'
     ? ['query', 'warn', 'error']
     : ['warn', 'error'];
