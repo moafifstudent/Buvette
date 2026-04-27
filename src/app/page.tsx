@@ -64,24 +64,16 @@ export default function Home() {
 
   return (
     <main className="container">
-      <header style={{ marginBottom: '3rem', textAlign: 'center' }}>
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-          <div
-            style={{
-              background: 'rgba(255, 255, 255, 0.85)',
-              padding: '0.75rem 1rem',
-              borderRadius: '1rem',
-              boxShadow: '0 10px 20px rgba(15, 23, 42, 0.12)',
-              border: '1px solid rgba(148, 163, 184, 0.25)',
-            }}
-          >
+      <header className="page-header">
+        <div className="logo-wrap">
+          <div className="logo-card">
             <Image
               src="/ensam-logo.png"
               alt="ENSAM Logo"
               width={220}
               height={72}
               priority
-              style={{ height: 'auto', width: 'auto', maxWidth: '100%' }}
+              className="logo-image"
             />
           </div>
         </div>
@@ -91,8 +83,8 @@ export default function Home() {
 
       <AuthPanel onAuthChange={() => setIsAuthenticated((value) => !value)} />
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(300px, 1fr) 350px', gap: '2rem', alignItems: 'start' }}>
+      <div className="main-grid">
+        <div className="top-grid">
           <div className="glass-card">
             <div className="header-actions" style={{ marginBottom: '1.5rem' }}>
               <h2 style={{ fontSize: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -102,8 +94,8 @@ export default function Home() {
             </div>
             <div className="form-group">
               <label>Select Date</label>
-              <div style={{ position: 'relative', display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <div style={{ position: 'relative', flex: 1 }}>
+              <div className="date-filter-row">
+                <div className="date-input-wrap">
                   <CalendarIcon size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8' }} />
                   <input 
                     type="date" 
