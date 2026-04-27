@@ -8,12 +8,14 @@ import { format } from 'date-fns';
 
 interface ExportButtonProps {
   students: Student[];
+  selectedDate: string;
 }
 
-export default function ExportButton({ students }: ExportButtonProps) {
+export default function ExportButton({ students, selectedDate }: ExportButtonProps) {
   const exportToPDF = () => {
     const doc = new jsPDF();
-    const dateStr = format(new Date(), 'yyyy-MM-dd');
+    const exportDate = new Date(selectedDate);
+    const dateStr = format(exportDate, 'yyyy-MM-dd');
 
     // Add Title
     doc.setFontSize(20);
@@ -22,7 +24,7 @@ export default function ExportButton({ students }: ExportButtonProps) {
     
     doc.setFontSize(11);
     doc.setTextColor(100);
-    doc.text(`Date: ${format(new Date(), 'MMMM dd, yyyy')}`, 14, 30);
+    doc.text(`Date: ${format(exportDate, 'MMMM dd, yyyy')}`, 14, 30);
     doc.text(`Total Orders: ${students.length}`, 14, 36);
 
     // Add Table

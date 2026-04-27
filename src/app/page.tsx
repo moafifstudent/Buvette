@@ -104,7 +104,7 @@ export default function Home() {
                     style={{ paddingLeft: '2.5rem' }}
                   />
                 </div>
-                <ExportButton students={students} />
+                <ExportButton students={students} selectedDate={selectedDate} />
               </div>
             </div>
             <p style={{ fontSize: '0.875rem', color: '#94a3b8' }}>
