@@ -28,14 +28,13 @@ export default function ExportButton({ students }: ExportButtonProps) {
     // Add Table
     const tableData = students.map(s => [
       s.name,
-      s.class,
       s.order,
       format(new Date(s.date), 'HH:mm')
     ]);
 
     autoTable(doc, {
       startY: 45,
-      head: [['Student Name', 'Class / Dept', 'Order Detail', 'Time']],
+      head: [['Student Name', 'Order Detail', 'Time']],
       body: tableData,
       theme: 'striped',
       headStyles: { fillColor: [99, 102, 241] },
