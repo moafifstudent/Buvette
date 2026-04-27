@@ -72,13 +72,13 @@ export default function StudentList({ students, selectedDate, onDelete, isAuthen
         </div>
       </div>
 
-      <div style={{ overflowX: 'auto' }}>
+      <div className="students-table-wrap" style={{ overflowX: 'auto' }}>
         {students.length === 0 ? (
           <div className="empty-state">
             <p>No orders yet today.</p>
           </div>
         ) : (
-          <table>
+          <table className="students-table">
             <thead>
               <tr>
                 <th>Student Name</th>
@@ -90,16 +90,17 @@ export default function StudentList({ students, selectedDate, onDelete, isAuthen
             <tbody>
               {students.map((student) => (
                 <tr key={student.id}>
-                  <td style={{ fontWeight: 600 }}>{student.name}</td>
-                  <td>{student.order}</td>
-                  <td>
+                  <td data-label="Student" style={{ fontWeight: 600 }}>{student.name}</td>
+                  <td data-label="Order">{student.order}</td>
+                  <td data-label="Status">
                     <span className="badge badge-success">Confirmed</span>
                   </td>
-                  <td>
+                  <td data-label="Action">
                     <button
                       type="button"
                       onClick={() => handleDelete(student.id)}
                       disabled={deletingId === student.id || !isAuthenticated}
+                      className="row-delete-btn"
                       style={{
                         display: 'inline-flex',
                         alignItems: 'center',

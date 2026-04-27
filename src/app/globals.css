@@ -89,6 +89,13 @@ body {
 .date-input-wrap {
   position: relative;
   flex: 1;
+  min-width: 0;
+}
+
+.date-input-wrap input[type="date"] {
+  display: block;
+  width: 100%;
+  min-height: 48px;
 }
 
 .glass-card {
@@ -367,6 +374,18 @@ tr:last-child td {
     align-items: stretch;
   }
 
+  .date-input-wrap {
+    width: 100%;
+  }
+
+  .date-input-wrap input[type="date"] {
+    padding-left: 1rem !important;
+  }
+
+  .date-input-wrap svg {
+    display: none;
+  }
+
   .date-filter-row .btn-export {
     width: 100%;
   }
@@ -377,8 +396,68 @@ tr:last-child td {
     gap: 0.75rem;
   }
 
-  table {
-    min-width: 560px;
+  .students-table-wrap {
+    overflow: visible !important;
+  }
+
+  .students-table {
+    width: 100%;
+    min-width: 0;
+    margin-top: 1rem;
+  }
+
+  .students-table thead {
+    display: none;
+  }
+
+  .students-table,
+  .students-table tbody,
+  .students-table tr,
+  .students-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .students-table tr {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.85rem;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    background: rgba(15, 23, 42, 0.35);
+  }
+
+  .students-table td {
+    border-bottom: none;
+    padding: 0.35rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .students-table td::before {
+    content: attr(data-label);
+    font-size: 0.78rem;
+    color: #94a3b8;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+
+  .students-table td[data-label="Student"] {
+    font-size: 1.05rem;
+  }
+
+  .students-table td[data-label="Student"]::before {
+    content: "Student";
+  }
+
+  .students-table td[data-label="Action"] {
+    align-items: stretch;
+  }
+
+  .students-table td[data-label="Action"] .row-delete-btn {
+    width: auto;
   }
 
   .confirm-actions {
